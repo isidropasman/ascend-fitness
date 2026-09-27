@@ -1,0 +1,8 @@
+import type{Workout}from'./types';
+const E=(id:string,name:string,sets:number,min:number,max:number,type:any,pair?:'A1'|'A2'):any=>({id,name,sets,min,max,type,pair});
+export const PROGRAM:Record<number,Workout>={
+1:{title:'Upper A',subtitle:'Fuerza + potencia',mins:'50–60 min',ex:[E('incline','Press inclinado con barra',4,5,6,'upper','A1'),E('chestthrow','Lanzamiento de balón al pecho',4,3,5,'power','A2'),E('pullups','Dominadas',4,6,10,'upper'),E('row1','Remo mancuerna a una mano',3,8,12,'upper'),E('lateral1','Elevaciones laterales',3,12,20,'upper'),E('dips','Fondos',2,8,12,'upper')]},
+2:{title:'Lower A',subtitle:'Fuerza + potencia',mins:'50–60 min',ex:[E('squat','Back squat',4,4,6,'lower','A1'),E('boxjump','Box jump',4,3,5,'power','A2'),E('rdl','Peso muerto rumano',3,6,10,'lower'),E('bulgarian','Búlgaras',3,8,10,'lower'),E('calves','Gemelos',2,12,20,'lower'),E('abwheel','Ab wheel',3,8,15,'body')]},
+4:{title:'Upper B',subtitle:'Espalda + potencia',mins:'50–60 min',ex:[E('wpull','Dominada lastrada',4,4,6,'upper','A1'),E('slam','Med-ball slam',4,3,5,'power','A2'),E('dbpress','Press plano con mancuernas',3,8,12,'upper'),E('row2','Remo sentado',3,8,12,'upper'),E('lateral2','Elevaciones laterales',3,12,20,'upper'),E('facepull','Face pulls / deltoide posterior',3,12,20,'upper'),E('arms','Curl + tríceps',2,10,15,'upper')]},
+5:{title:'Lower B',subtitle:'Bisagra + potencia',mins:'50–60 min',ex:[E('trap','Trap-bar deadlift',4,3,5,'lower','A1'),E('broad','Broad jump',4,3,3,'power','A2'),E('legpress','Prensa / front squat',3,8,12,'lower'),E('lunges','Walking lunges',2,10,10,'lower'),E('hamcurl','Curl femoral',3,10,15,'lower'),E('hanging','Elevación de piernas colgado',3,10,15,'body')]}
+};
