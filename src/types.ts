@@ -1,5 +1,5 @@
 export type ExerciseType='upper'|'lower'|'power'|'body';
-export type SetLog={weight:number;reps:number;rir:number;quality?:'Alta'|'Media'|'Baja';done?:boolean};
+export type SetLog={weight:number;reps:number;rir:number;quality?:'Alta'|'Media'|'Baja';done?:boolean;skipped?:boolean};
 export type Exercise={id:string;name:string;sets:number;min:number;max:number;type:ExerciseType;pair?:'A1'|'A2';rest?:number};
 export type Workout={title:string;subtitle:string;mins:string;ex:Exercise[]};
 export type Recommendation={w:number;label:string;kind:'up'|'down'|'same'}|null;
