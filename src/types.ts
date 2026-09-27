@@ -1,0 +1,12 @@
+export type ExerciseType='upper'|'lower'|'power'|'body';
+export type SetLog={weight:number;reps:number;rir:number;quality?:'Alta'|'Media'|'Baja';done?:boolean};
+export type Exercise={id:string;name:string;sets:number;min:number;max:number;type:ExerciseType;pair?:'A1'|'A2';rest?:number};
+export type Workout={title:string;subtitle:string;mins:string;ex:Exercise[]};
+export type Recommendation={w:number;label:string;kind:'up'|'down'|'same'}|null;
+export type ExerciseLog={id:string;name:string;sets:SetLog[];next:Recommendation;skipped?:boolean};
+export type Session={id:string;date:string;day:number;title:string;duration:number;logs:ExerciseLog[];notes?:string};
+export type BodyEntry={date:string;weight:number;waist?:number;note?:string};
+export type Profile={height?:number;weight?:number;goalWeight?:number;name?:string};
+export type Settings={upper:number;lower:number;deload:number;rest:number};
+export type Draft={day:number;idx:number;logs:Record<string,SetLog[]>;started:number}|null;
+export type AppData={version:number;profile:Profile;settings:Settings;sessions:Session[];body:BodyEntry[];mobility:string[];draft:Draft;targets:Record<string,number|null>;onboarded:boolean};
