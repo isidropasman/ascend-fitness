@@ -1,0 +1,7 @@
+import type{Exercise,SetLog,Settings,Recommendation,Session}from'./types';
+export const roundLoad=(n:number)=>Math.round(n/2.5)*2.5;
+export function recommend(ex:Exercise,sets:SetLog[],s:Settings):Recommendation{if(ex.type==='power'||ex.type==='body'||!sets?.length)return null;const valid=sets.filter(x=>x.done!==false&&Number.isFinite(+x.weight));if(!valid.length)return null;const w=+valid.at(-1)!.weight;if(valid.some(x=>+x.rir===0))return{w:roundLoad(w*(1-s.deload/100)),label:'Bajá carga: hubo una serie en RIR 0',kind:'down'};const allTop=valid.length>=ex.sets&&valid.every(x=>+x.reps>=ex.max&&+x.rir>=1&&+x.rir<=3);if(allTop){const p=ex.type==='lower'?s.lower:s.upper;return{w:roundLoad(w*(1+p/100)),label:'Todas las series sólidas. Subí carga.',kind:'up'}}return{w,label:'Mantené la carga y ganá reps con buena técnica',kind:'same'}}
+export const volume=(s:Session)=>s.logs.reduce((a,l)=>a+l.sets.reduce((b,x)=>b+(+x.weight||0)*(+x.reps||0),0),0);
+export const e1rm=(w:number,r:number)=>w&&r?Math.round(w*(1+r/30)*10)/10:0;
+export function bmi(weight?:number,height?:number){if(!weight||!height)return null;return Math.round(weight/((height/100)**2)*10)/10}
+export function bodyTrend(entries:{date:string;weight:number}[]){if(entries.length<2)return null;const sorted=[...entries].sort((a,b)=>a.date.localeCompare(b.date));return Math.round((sorted.at(-1)!.weight-sorted[0].weight)*10)/10}
