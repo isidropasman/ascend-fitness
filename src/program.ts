@@ -1,5 +1,5 @@
-import type{Workout}from'./types';
-const E=(id:string,name:string,sets:number,min:number,max:number,type:any,pair?:'A1'|'A2'):any=>({id,name,sets,min,max,type,pair});
+import type{Exercise,ExerciseType,Workout}from'./types';
+const E=(id:string,name:string,sets:number,min:number,max:number,type:ExerciseType,pair?:'A1'|'A2'):Exercise=>({id,name,sets,min,max,type,pair});
 export const PROGRAM:Record<number,Workout>={
 1:{title:'Upper A',subtitle:'Fuerza + potencia',mins:'50–60 min',ex:[E('incline','Press inclinado con barra',4,5,6,'upper','A1'),E('chestthrow','Lanzamiento de balón al pecho',4,3,5,'power','A2'),E('pullups','Dominadas',4,6,10,'upper'),E('row1','Remo mancuerna a una mano',3,8,12,'upper'),E('lateral1','Elevaciones laterales',3,12,20,'upper'),E('dips','Fondos',2,8,12,'upper')]},
 2:{title:'Lower A',subtitle:'Fuerza + potencia',mins:'50–60 min',ex:[E('squat','Back squat',4,4,6,'lower','A1'),E('boxjump','Box jump',4,3,5,'power','A2'),E('rdl','Peso muerto rumano',3,6,10,'lower'),E('bulgarian','Búlgaras',3,8,10,'lower'),E('calves','Gemelos',2,12,20,'lower'),E('abwheel','Ab wheel',3,8,15,'body')]},
