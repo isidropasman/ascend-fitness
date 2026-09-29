@@ -12,4 +12,4 @@ export type Draft={day:number;idx:number;logs:Record<string,SetLog[]>;started:nu
 export type ActivityType='gym'|'mobility'|'cardio'|'run'|'walk'|'football'|'sport'|'rest'|'other';
 export type ActivityEvent={id:string;date:string;type:ActivityType;duration?:number;intensity?:'low'|'medium'|'high';note?:string;dominantLoad?:'upper'|'lower'|'full'|'recovery'};
 export type PlanException={date:string;plannedDay:number;status:'missed'|'moved'|'skipped';note?:string};
-export type AppData={version:number;profile:Profile;settings:Settings;sessions:Session[];body:BodyEntry[];mobility:string[];activities:ActivityEvent[];planExceptions:PlanException[];draft:Draft;targets:Record<string,number|null>;onboarded:boolean;nextWorkoutDay?:number};
+export type AppData={version:number;profile:Profile;settings:Settings;sessions:Session[];body:BodyEntry[];mobility:string[];activities:ActivityEvent[];planExceptions:PlanException[];draft:Draft;targets:Record<string,number|null>;onboarded:boolean;nextWorkoutDay?:number;program?:Record<number,Workout>};
